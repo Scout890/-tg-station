@@ -168,7 +168,7 @@
 			standing	+= img_facial_s
 
 	//Applies the debrained overlay if there is no brain
-	if(!H.getorgan(/obj/item/organ/brain))
+	if(!H.getorgan(/obj/item/organ/internal/brain))
 		standing	+= image("icon"='icons/mob/human_face.dmi', "icon_state" = "debrained_s", "layer" = -HAIR_LAYER)
 
 	if((H.wear_suit) && (H.wear_suit.hooded) && (H.wear_suit.suittoggled == 1))
@@ -1040,7 +1040,6 @@
 						H.apply_effect(20, PARALYZE, armor)
 					if(prob(I.force + ((100 - H.health)/2)) && H != user && I.damtype == BRUTE)
 						ticker.mode.remove_revolutionary(H.mind)
-						ticker.mode.remove_gangster(H.mind)
 
 				if(bloody)	//Apply blood
 					if(H.wear_mask)
@@ -1101,7 +1100,7 @@
 	if(blocked <= 0)	return 0
 
 	var/obj/item/organ/limb/organ = null
-	if(isorgan(def_zone))
+	if(islimb(def_zone))
 		organ = def_zone
 	else
 		if(!def_zone)	def_zone = ran_zone(def_zone)
