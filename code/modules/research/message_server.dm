@@ -76,7 +76,7 @@ var/global/list/obj/machinery/message_server/message_servers = list()
 	icon_state = "server"
 	name = "Messaging Server"
 	density = 1
-	anchored = 1.0
+	anchored = 1
 	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 100
@@ -210,7 +210,7 @@ var/obj/machinery/blackbox_recorder/blackbox
 	icon_state = "blackbox"
 	name = "Blackbox Recorder"
 	density = 1
-	anchored = 1.0
+	anchored = 1
 	use_power = 1
 	idle_power_usage = 10
 	active_power_usage = 100
@@ -276,7 +276,7 @@ var/obj/machinery/blackbox_recorder/blackbox
 	var/pda_msg_amt = 0
 	var/rc_msg_amt = 0
 
-	for (var/obj/machinery/message_server/MS in world)
+	for (var/obj/machinery/message_server/MS in message_servers)
 		if (MS.chat_msgs.len > chat_msg_amt)
 			chat_msg_amt = MS.chat_msgs.len
 		if (MS.pda_msgs.len > pda_msg_amt)
